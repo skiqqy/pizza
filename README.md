@@ -51,9 +51,9 @@ This includes the syntax, and a rough explenation after the ';'.
 
 ### Logic
 * `cmp <reg1> <reg2>;` Sets the flags register bits to be used by other funcs.
-* `jg <label>;` Checks eflags, if true jumps to the label.
-* `jl <label>;` Checks eflags, if true jumps to the label.
-* `jeq <label>;` Checks eflags, if true jumps to the label.
+* `jg <label>;` Checks flags, if true jumps to the label.
+* `jl <label>;` Checks flags, if true jumps to the label.
+* `jeq <label>;` Checks flags, if true jumps to the label.
 
 ### Unary Operators
 * `push <reg/const>;` Pushes the contents of reg/ the constant onto the stack.
