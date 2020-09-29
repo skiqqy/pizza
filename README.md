@@ -21,4 +21,4 @@ Because it sounds like fun, and is unique.
 
 - [ ] Design ebnf for `slice` lang.
 - [ ] Create a formal spec.
-- [ ] Deside on instruction's.
+- [ ] Decide on instruction's.
