@@ -15,21 +15,20 @@ Because it sounds like fun, and is unique.
 * RISC isa.
 * Written in C.
 * Custom Assembler lang, called slice.
-* Either register or stack based (Must still decide).
 
 ## Registers
 
 | Register | Details |
 | -- | -- |
 | R0 | Normally stores the result from an instruction |
-| R1 | TODO |
-| R2 | TODO |
-| R3 | TODO |
-| R4 | TODO |
+| R1 | General Use |
+| R2 | General Use |
+| R3 | General Use |
+| R4 | Contains extra output from other instructions |
 | R5 | TODO |
 | R6 | TODO |
-| R7 | TODO |
-| R8 | TODO |
+| R7 | Same as esp |
+| R8 | Same as ebp |
 
 ## Flags
 
@@ -55,6 +54,21 @@ This includes the syntax, and a rough explenation after the ';'.
 * `jg <label>;` Checks eflags, if true jumps to the label.
 * `jl <label>;` Checks eflags, if true jumps to the label.
 * `jeq <label>;` Checks eflags, if true jumps to the label.
+
+### Unary Operators
+* `push <reg/const>;` Pushes the contents of reg/ the constant onto the stack.
+* `pop <reg;>` Remove the value from the top of the stack and store it in `<reg>`.
+
+### Binary Operators
+* `store <reg1> <reg2/Const>;` Stores the const/ value from `<reg2>` into `<reg1>`.
+* `add <reg1> <reg2/Const>;` Basically `<reg1> += <reg2/const>`.
+* `imul <reg1> <reg2/Const>;` Basically `R0 = <reg1>*<reg2/const>`, for signed integer multiplication.
+* `idiv <reg1> <reg2/Const>;` Basically `R0 = <reg1>/<reg2/const>`, `R4` contains the remainder.
+* `fmul <reg1> <reg2/Const>;` Basically `R0 = <reg1>*<reg2/const>`.
+
+### "System" Calls
+* `flush <reg> <File descriptor (int)>;` `reg` must point to a null string.
+* `malloc <const int n>` Basically `R0 = malloc(sizeof(char)*n)`.
 
 ## TODO
 
