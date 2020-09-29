@@ -51,10 +51,10 @@ indirectly via the instructions being parsed.
 This includes the syntax, and a rough explenation after the ';'.
 
 ### Logic
-* `cmp reg1 reg2;` Sets the flags register bits to be used by other funcs.
-* `jg label;` Checks eflags, if true jumps to the label.
-* `jl label;` Checks eflags, if true jumps to the label.
-* `jeq label;` Checks eflags, if true jumps to the label.
+* `cmp <reg1> <reg2>;` Sets the flags register bits to be used by other funcs.
+* `jg <label>;` Checks eflags, if true jumps to the label.
+* `jl <label>;` Checks eflags, if true jumps to the label.
+* `jeq <label>;` Checks eflags, if true jumps to the label.
 
 ## TODO
 
