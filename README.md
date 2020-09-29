@@ -38,13 +38,13 @@ See the table below to see what the bits represent.
 Note you cannot access the Flags register directly, instead you operate on it
 indirectly via the instructions being parsed.
 
-| Bit Mask |    Name     | Abbreviation |   =1    | =0       |
-| -------- | ----------  | ------------ | ------- | -------- |
-| 0x0001   | Zero Flag   | ZF           | Is Zero | Not Zero |
-| 0x0002   | Sign Flag   | SF           | Is Neg  | Is Pos   |
-| 0x0004   | Parity Flag | PF           | Is Even | Is Odd   |
+| Bit # | Bit Mask |    Name     | Abbreviation |   =1    | =0       |
+| ----- | -------- | ----------  | ------------ | ------- | -------- |
+| 0     | 0x0001   | Zero Flag   | ZF           | Is Zero | Not Zero |
+| 1     | 0x0002   | Sign Flag   | SF           | Is Neg  | Is Pos   |
+| 2     | 0x0004   | Parity Flag | PF           | Is Even | Is Odd   |
 
-[comment]: # (| 0x0000   |           |              |         |          |)
+[comment]: # (|       | 0x0000   |           |              |         |          |)
 
 ## TODO
 
