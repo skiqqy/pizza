@@ -15,6 +15,7 @@ Because it sounds like fun, and is unique.
 * RISC isa.
 * Written in C.
 * Custom Assembler lang, called slice.
+* Either register or stack based (Must still decide).
 
 ## TODO
 
