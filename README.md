@@ -2,8 +2,8 @@
 <img src="assets/header.png"><br>
 </div>
 
-The pizza project aims to implement an intepreter for an assembler langauge,
-the spec will be uploaded in a few days, but for now here is an outline of the
+The pizza project aims to implement an intepreter for an assembler langauge.
+The spec will be uploaded in a few days, but for now here is an outline of the
 project.
 
 ## Why
