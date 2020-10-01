@@ -70,6 +70,10 @@ This includes the syntax, and a rough explenation after the ';'.
 * `flush <reg> <File descriptor (int)>;` `reg` must point to a null string.
 * `malloc <const int n>` Basically `R0 = malloc(sizeof(char)*n)`.
 
+## EBNF
+Please note, this is a rough draft of the ebnf, and most likely contains a few errors,
+![EBNF](assets/ebnf.jpeg)
+
 ## TODO
 
 - [ ] Design ebnf for `slice` lang.
