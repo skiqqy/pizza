@@ -26,9 +26,8 @@ Because it sounds like fun, and is unique.
 | R3 | General Use |
 | R4 | Contains extra output from other instructions |
 | R5 | TODO |
-| R6 | TODO |
-| R7 | Same as esp |
-| R8 | Same as ebp |
+| R6 | Same as esp |
+| R7 | Same as ebp |
 
 ## Flags
 
