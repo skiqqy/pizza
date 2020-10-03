@@ -12,6 +12,7 @@
 /* @brief: Check if a token is an opcode
  * @param token: The token to check.
  * @return 1: the token is an opcode
+ * @return 0: the token is not an opcode
  */
 int
 is_opcode(Token *token)
