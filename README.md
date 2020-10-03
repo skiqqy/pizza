@@ -59,7 +59,7 @@ This includes the syntax, and a rough explenation after the ';'.
 * `pop <reg;>` Remove the value from the top of the stack and store it in `<reg>`.
 
 ### Binary Operators
-* `store <reg1> <reg2/Const>;` Basically `<reg1> = <reg2/Const>`.
+* `put <reg1> <reg2/Const>;` Basically `<reg1> = <reg2/Const>`.
 * `add <reg1> <reg2/Const>;`   Basically `<reg1> += <reg2/const>`.
 * `imul <reg1> <reg2/Const>;`  Basically `R0 = <reg1>*<reg2/const>`, for signed integer multiplication.
 * `idiv <reg1> <reg2/Const>;`  Basically `R0 = <reg1>/<reg2/const>`, `R4` contains the remainder.
