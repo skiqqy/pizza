@@ -86,6 +86,12 @@ proess_word(Token *token)
 }
 
 void
+init_scanner(FILE *file)
+{
+	// TODO: Finish init func.
+}
+
+void
 get_token(Token *token)
 {
 	// TODO: Construct the token, by reading source and retrieving the next token.
