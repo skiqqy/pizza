@@ -79,12 +79,19 @@ Please note, this is a rough draft of the ebnf, and most likely contains a few e
 "}" ;
 ````
 `<label> := ".", <identifier>, ":" ;`
+
 `<instruction> := <opcode>, <whitespace>, [<operand>], <whitespace>, [<operand>] ;`
+
 `<opcode> := <identifier> ;`
+
 `<operand> := <identifier> | <const> ;`
+
 `<const> := <string> | <number> ;`
+
 `<identifier> := <letter>, { <letter> | <digit> } ;`
+
 `<digit> := "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;`
+
 ````
 <letter> := "A" | "B" | "C" | "D" | "E" | "F" | "G"
 			| "H" | "I" | "J" | "K" | "L" | "M" | "N"
@@ -95,12 +102,19 @@ Please note, this is a rough draft of the ebnf, and most likely contains a few e
 			| "q" | "r" | "s" | "t" | "u" | "v" | "w"
 			| "x" | "y" | "z" ;
 ````
+
 `<string> := '"', { <printable> - '"' }, '"' ;`
+
 `<number> := <int> | <float> | <hex> ;`
+
 `<int> := <digit>, { <digit> } ;`
+
 `<float> := <int>, ".", <int> ;`
+
 `<hex> := "0x", { <int> | <letter> } ;`
+
 `<whitespace> := ? any whitespace character ? ;`
+
 `<printable> := ? any printable character ? ;`
 
 ## TODO
