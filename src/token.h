@@ -16,7 +16,8 @@ typedef enum {
 	TOKEN_COPEN,       /* { */
 	TOKEN_CCLOSE,      /* } */
 
-	/* opcodes */
+	OPP_UPPER,
+	/* opcodes start */
 	TOKEN_CMP,
 	TOKEN_JG,
 	TOKEN_JL,
@@ -28,6 +29,8 @@ typedef enum {
 	TOKEN_IMUL,
 	TOKEN_IDIV,
 	TOKEN_FMUL,
+	/* opcodes end */
+	OPP_LOWER,
 
 	/* "sys" opcodes */
 	TOKEN_FLUSH,
