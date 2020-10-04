@@ -7,5 +7,5 @@
 #include <stdio.h>
 #include "token.h"
 
-void get_token(Token *token);
+void fetch_token(Token *token);
 void init_scanner(FILE *source);

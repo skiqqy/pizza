@@ -141,7 +141,7 @@ init_scanner(FILE *file)
 }
 
 void
-get_token(Token *token)
+fetch_token(Token *token)
 {
 	// TODO: Construct the token, by reading source and retrieving the next token.
 	while (isspace(ch)) next_ch();
