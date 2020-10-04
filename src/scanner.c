@@ -68,6 +68,9 @@ static void
 next_ch()
 {
 	ch = getc(source);
+	if (ch != '\n') {
+		printf("Current char = %c\n", ch);
+	}
 
 	if (ch == '\n') {
 		clm = 0;
@@ -90,7 +93,7 @@ process_string(Token *token)
 }
 
 static void
-proess_word(Token *token)
+process_word(Token *token)
 {
 	/* Process a word, and construct the token. */
 	int i = 0, low, high, cmp, mid;
@@ -148,7 +151,8 @@ fetch_token(Token *token)
 
 	if (ch != EOF) {
 		if (isalpha(ch)) {
-			// TODO: Parse an identifier
+			// TODO: Parse word
+			process_word(token);
 		} else if (isdigit(ch)) {
 			// TODO: Parse int/float
 		} else {
@@ -175,4 +179,6 @@ fetch_token(Token *token)
 	} else {
 		token->type = TOKEN_EOF;
 	}
+
+	next_ch();
 }
