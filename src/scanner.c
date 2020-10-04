@@ -6,8 +6,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 #include "scanner.h"
+#include "err.h"
 
 typedef struct {
 	char *word;
@@ -90,8 +92,8 @@ process_string(Token *token)
 static void
 proess_word(Token *token)
 {
-	// TODO: Process a word, and construct the token.
-	int i = 0;
+	/* Process a word, and construct the token. */
+	int i = 0, low, high, cmp, mid;
 	char lex[ID_LEN_MAX + 1];
 
 	while ( (i <= ID_LEN_MAX) && (isalpha(ch) || isdigit(ch)) ) {
@@ -100,7 +102,32 @@ proess_word(Token *token)
 	}
 
 	if ( i >= ID_LEN_MAX + 1) {
+		pcerror("Identifier too long.");
 	}
+
+	high = NUM_RESV;
+	low = 0;
+	do {
+		mid = (high + low)/2;
+		cmp = strcmp(lex, reserved[mid].word);
+		if (cmp < 0) {
+			high = mid - 1;
+		} else if (cmp > 0) {
+			low = mid + 1;
+		} else {
+			i = mid;
+			break;
+		}
+	} while (low <= high);
+
+	/* Check to see if it is an opcode */
+	if (!cmp) {
+		token->type = reserved[i].type;
+		return;
+	}
+
+	token->type = TOKEN_ID;
+	strcpy(token->lexeme, lex);
 }
 
 void

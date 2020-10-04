@@ -14,10 +14,13 @@ all: install pizza
 
 pizza:
 
-testscanner: install scanner.o
-	$(COMPILE) -o $(BIN)$@ src/$@.c $(BIN)scanner.o
+testscanner: install scanner.o err.o
+	$(COMPILE) -o $(BIN)$@ src/$@.c $(BIN)scanner.o $(BIN)err.o
 
 scanner.o: src/scanner.c src/scanner.h
+	$(COMPILE) -c $< -o bin/$@
+
+err.o: src/err.c src/err.h
 	$(COMPILE) -c $< -o bin/$@
 
 clean:
