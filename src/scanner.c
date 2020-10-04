@@ -103,6 +103,7 @@ process_word(Token *token)
 		lex[i++] = ch;
 		next_ch();
 	}
+	lex[i] = 0;
 
 	if ( i >= ID_LEN_MAX + 1) {
 		pcerror("Identifier too long.");
@@ -126,6 +127,7 @@ process_word(Token *token)
 	/* Check to see if it is an opcode */
 	if (!cmp) {
 		token->type = reserved[i].type;
+		strcpy(token->lexeme, lex);
 		return;
 	}
 
