@@ -83,7 +83,6 @@ _pfcerror(const char *pre, const Pos *pos, const char *fmt, va_list args)
 {
 	int istty = isatty(2);
 	const char *ac_end = (istty ? ASCII_RESET : "");
-	const char *ac_src = (istty ? ASCII_BOLD_WHITE : "");
 	const char *ac_pos = (istty ? ASCII_BOLD_WHITE : "");
 
 	fflush(stdout);
