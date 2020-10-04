@@ -47,3 +47,6 @@ typedef struct {
 		char *string;                 /* The string (for type string) */
 	};
 } Token;
+
+const char *tok_string(Token *token);
+int is_opcode(Token *token);

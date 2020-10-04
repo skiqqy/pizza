@@ -14,14 +14,17 @@ all: install pizza
 
 pizza:
 
-testscanner: install scanner.o err.o
+testscanner: install scanner.o err.o token.o
 	$(COMPILE) -o $(BIN)$@ src/$@.c $(BIN)scanner.o $(BIN)err.o
 
 scanner.o: src/scanner.c src/scanner.h
-	$(COMPILE) -c $< -o bin/$@
+	$(COMPILE) -c $< -o $(BIN)$@
+
+token.o: src/token.h src/token.c
+	$(COMPILE) -c $< -o $(BIN)$@
 
 err.o: src/err.c src/err.h
-	$(COMPILE) -c $< -o bin/$@
+	$(COMPILE) -c $< -o $(BIN)$@
 
 clean:
 	rm -rf $(BIN)
