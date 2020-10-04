@@ -5,6 +5,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 
 #include "scanner.h"
 
@@ -64,7 +65,14 @@ static void process_word(Token *token);
 static void
 next_ch()
 {
-	// TODO: Get the next char, and inc line and colm nr where needed.
+	ch = getc(source);
+
+	if (ch == '\n') {
+		clm = 0;
+		row++;
+	}
+
+	clm++;
 }
 
 static void
@@ -83,16 +91,61 @@ static void
 proess_word(Token *token)
 {
 	// TODO: Process a word, and construct the token.
+	int i = 0;
+	char lex[ID_LEN_MAX + 1];
+
+	while ( (i <= ID_LEN_MAX) && (isalpha(ch) || isdigit(ch)) ) {
+		lex[i++] = ch;
+		next_ch();
+	}
+
+	if ( i >= ID_LEN_MAX + 1) {
+	}
 }
 
 void
 init_scanner(FILE *file)
 {
 	// TODO: Finish init func.
+	clm = 0;
+	row = 1;
+	source = file;
+	next_ch();
 }
 
 void
 get_token(Token *token)
 {
 	// TODO: Construct the token, by reading source and retrieving the next token.
+	while (isspace(ch)) next_ch();
+
+	if (ch != EOF) {
+		if (isalpha(ch)) {
+			// TODO: Parse an identifier
+		} else if (isdigit(ch)) {
+			// TODO: Parse int/float
+		} else {
+			switch (ch) {
+				case '#':
+					// TODO: parse comment.
+					break;
+				case '"':
+					// TODO: Parse a string.
+					break;
+				case '.':
+					// TODO: Parse a label.
+					break;
+				case '{':
+					token->type = TOKEN_COPEN;
+					next_ch();
+					break;
+				case '}':
+					token->type = TOKEN_CCLOSE;
+					next_ch();
+					break;
+			}
+		}
+	} else {
+		token->type = TOKEN_EOF;
+	}
 }

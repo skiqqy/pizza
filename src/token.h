@@ -12,6 +12,7 @@ typedef enum {
 	TOKEN_INT,         /* Int literal */
 	TOKEN_FLOAT,       /* Float literal */
 	TOKEN_STRING,      /* String Literal */
+	TOKEN_LABEL,       /* Label Token */
 
 	TOKEN_COPEN,       /* { */
 	TOKEN_CCLOSE,      /* } */
