@@ -18,7 +18,7 @@ static char *tok_names[] = {
 	"const-string",
 	"label",
 	"token: {",
-	"tolen: }",
+	"token: }",
 	"DEBUG: OPP_UPPER",
 	"cmp",
 	"jg",
@@ -43,7 +43,7 @@ tok_string(Token *token)
 	int type = token->type;
 
 	if ((type < 0) || type >= sizeof(tok_names)/sizeof(char *)) {
-		pcerror("Unknown token type. tok_string(...)");
+		pcerror("Unknown token type. %d", type);
 	}
 
 	return tok_names[type];

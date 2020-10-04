@@ -33,7 +33,7 @@ p_token(Token *token)
 			if (is_opcode(token)) {
 				printf("Opcode: %s\n", token->lexeme);
 			} else {
-				printf("Unknown token type, token->type = %d\n", token->type);
+				printf("%s\n", tok_string(token));
 			}
 			break;
 	}

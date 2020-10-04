@@ -70,9 +70,6 @@ static void
 next_ch()
 {
 	ch = getc(source);
-	if (ch != '\n') {
-		printf("Current char = %c\n", ch);
-	}
 
 	if (ch == '\n') {
 		clm = 0;
@@ -170,6 +167,7 @@ fetch_token(Token *token)
 				case '#':
 					/* parse comment. */
 					process_comment();
+					fetch_token(token);
 					break;
 				case '"':
 					// TODO: Parse a string.
