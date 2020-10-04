@@ -1,5 +1,7 @@
 ident
+ident2
 {
+# Comment 2
 }
 put
 push

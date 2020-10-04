@@ -167,6 +167,7 @@ fetch_token(Token *token)
 				case '#':
 					/* parse comment. */
 					process_comment();
+					next_ch();
 					fetch_token(token);
 					break;
 				case '"':
@@ -188,6 +189,4 @@ fetch_token(Token *token)
 	} else {
 		token->type = TOKEN_EOF;
 	}
-
-	next_ch();
 }
