@@ -64,6 +64,8 @@ static void process_string(Token *token);
  */
 static void process_word(Token *token);
 
+static void process_comment();
+
 static void
 next_ch()
 {
@@ -136,6 +138,12 @@ process_word(Token *token)
 }
 
 void
+process_comment()
+{
+	while (ch != '\n') next_ch();
+}
+
+void
 init_scanner(FILE *file)
 {
 	// TODO: Finish init func.
@@ -160,7 +168,8 @@ fetch_token(Token *token)
 		} else {
 			switch (ch) {
 				case '#':
-					// TODO: parse comment.
+					/* parse comment. */
+					process_comment();
 					break;
 				case '"':
 					// TODO: Parse a string.
