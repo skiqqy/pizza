@@ -8,7 +8,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "scanner.h"
+#include "lexer.h"
 #include "err.h"
 
 typedef struct {

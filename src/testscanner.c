@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "scanner.h"
+#include "lexer.h"
 
 void
 usage()
