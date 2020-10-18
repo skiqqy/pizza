@@ -20,8 +20,8 @@ p_token(Token *token)
 		case TOKEN_INT:
 			printf("Int: %d\n", token->val_int);
 			break;
-		case TOKEN_FLOAT:
-			printf("Float: %f\n", token->val_float);
+		case TOKEN_DOUBLE:
+			printf("Double: %f\n", token->val_double);
 			break;
 		case TOKEN_STRING:
 			printf("String: \"%s\"\n", token->string);
@@ -42,7 +42,6 @@ p_token(Token *token)
 int
 main(int argc, char *argv[])
 {
-	/* TODO: Write test code for the scanner. */
 	Token token;
 	FILE *file;
 

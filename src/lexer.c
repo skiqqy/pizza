@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <math.h>
 
 #include "lexer.h"
 #include "err.h"
@@ -66,6 +67,8 @@ static void process_word(Token *token);
 
 static void process_comment();
 
+static double get_rem();
+
 static void
 next_ch()
 {
@@ -79,16 +82,59 @@ next_ch()
 	clm++;
 }
 
+static double
+get_rem() {
+	double rem = 0;
+	int i = 1;
+	double index = 0.1;
+
+	while (isdigit(ch)) {
+		// TODO: Make sure no undeflow occurs
+		rem += (ch - '0')*pow(index, i++);
+		next_ch();
+	}
+
+	return rem;
+}
+
 static void
 process_number(Token *token)
 {
-	// TODO: Construct a number token.
+	// Construct a number token.
+	int val = ch - '0'; // COnv to int
+	double rem = 0;
+	
+	next_ch();
+	while (isdigit(ch) || ch == '.') {
+		if (ch == '.') {
+			if (rem != 0) {
+				// The next token is a label.
+				return;
+			}
+
+			next_ch();
+			rem = get_rem();
+			break;
+		} else {
+			// TODO: Ensure that this doesnt overflow.
+			val = val*10 + (ch - '0');
+		}
+		next_ch();
+	}
+
+	if (rem == 0) {
+		token->type =  TOKEN_INT;
+		token->val_int = val;
+	} else {
+		token->type = TOKEN_DOUBLE;
+		token->val_double = val + rem;
+	}
 }
 
 static void
 process_string(Token *token)
 {
-	// TODO: Construct a string literal token.
+	// Construct a string literal token.
 	char *buff;
 	int size = 1024, i = 0;
 	buff = malloc(sizeof(char)*size);
@@ -210,10 +256,11 @@ fetch_token(Token *token)
 
 	if (ch != EOF) {
 		if (isalpha(ch)) {
-			// TODO: Parse word
+			// Parse word
 			process_word(token);
 		} else if (isdigit(ch)) {
-			// TODO: Parse int/float
+			// Parse int/float
+			process_number(token);
 		} else {
 			switch (ch) {
 				case '#':

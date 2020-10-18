@@ -10,7 +10,7 @@ typedef enum {
 	TOKEN_EOF,         /* EOF Token */
 	TOKEN_ID,          /* Identifier Token */
 	TOKEN_INT,         /* Int literal */
-	TOKEN_FLOAT,       /* Float literal */
+	TOKEN_DOUBLE,      /* Double literal */
 	TOKEN_STRING,      /* String Literal */
 	TOKEN_LABEL,       /* Label Token */
 
@@ -42,7 +42,7 @@ typedef struct {
 	TokenType type;
 	union {
 		int val_int;                  /* The value (if type int) */
-		float val_float;              /* The value (if type float) */
+		float val_double;             /* The value (if type float) */
 		char lexeme[ID_LEN_MAX + 1];  /* The lexeme of the identifier */
 		char *string;                 /* The string (for type string) */
 	};

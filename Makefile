@@ -3,7 +3,7 @@
 # Makefile for the pizza project
 
 CC      = gcc
-FLAGS   = -Wall
+FLAGS   = -Wall -lm
 COMPILE = $(CC) $(FLAGS)
 BIN     = bin/
 
