@@ -89,6 +89,58 @@ static void
 process_string(Token *token)
 {
 	// TODO: Construct a string literal token.
+	char *buff;
+	int size = 1024, i = 0;
+	buff = malloc(sizeof(char)*size);
+	next_ch();
+
+	while (ch != '"') {
+		if (i >= size) {
+			/* We must recize the buffer */
+			size *= 2;
+			buff = realloc(buff, sizeof(char)*size);
+		}
+
+		switch (ch) {
+			case EOF:
+				pcerror("Unclosed string literal");
+				break;
+			case '\\':
+				next_ch();
+				switch (ch) {
+					case '\\':
+						buff[i] = '\\';
+						break;
+					case 't':
+						buff[i] = '\t';
+						break;
+					case 'n':
+						buff[i] = '\n';
+						break;
+					case '"':
+						buff[i] = '"';
+						break;
+					default:
+						pcerror("Invalid escape sequence");
+						break;
+				}
+				break;
+			default:
+				if (isprint(ch)) {
+					buff[i] = ch;
+				} else {
+					pcerror("Non-printable char in string literal");
+				}
+				break;
+		}
+		next_ch();
+		i++;
+	}
+	next_ch();
+
+	buff[i] = 0;
+	token->type = TOKEN_STRING;
+	token->string = buff;
 }
 
 static void
@@ -172,6 +224,7 @@ fetch_token(Token *token)
 					break;
 				case '"':
 					// TODO: Parse a string.
+					process_string(token);
 					break;
 				case '.':
 					// TODO: Parse a label.

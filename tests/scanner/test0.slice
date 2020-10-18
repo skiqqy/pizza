@@ -3,6 +3,9 @@ ident2
 {
 # Comment 2
 }
+"String literal"
+"String with a\nnewline and a \ttab"
+"String with a \"quote\""
 put
 push
 add
