@@ -223,7 +223,6 @@ fetch_token(Token *token)
 					fetch_token(token);
 					break;
 				case '"':
-					// TODO: Parse a string.
 					process_string(token);
 					break;
 				case '.':
