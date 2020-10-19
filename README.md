@@ -14,6 +14,12 @@ Because it sounds like fun, and is unique.
 
 The official wiki can be found [here](https://wiki.skiqqy.xyz/en/pizza), it contains the specification of pizza and slice-lang.
 
+## Compiling
+
+````
+$ make
+````
+
 ## Testing
 
 pizza is under active development, to run the __all__ tests for the current build
