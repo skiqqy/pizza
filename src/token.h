@@ -30,12 +30,13 @@ typedef enum {
 	TOKEN_IMUL,
 	TOKEN_IDIV,
 	TOKEN_FMUL,
-	/* opcodes end */
-	OPP_LOWER,
 
 	/* "sys" opcodes */
 	TOKEN_FLUSH,
 	TOKEN_MALLOC,
+
+	/* opcodes end */
+	OPP_LOWER,
 } TokenType;
 
 typedef struct {

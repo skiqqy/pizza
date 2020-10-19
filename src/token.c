@@ -31,9 +31,9 @@ static char *tok_names[] = {
 	"imul",
 	"idiv",
 	"fmul",
-	"DEBUG: OPP_LOWER",
 	"flush",
 	"malloc",
+	"DEBUG: OPP_LOWER",
 };
 
 
