@@ -13,3 +13,8 @@ add
 123456
 123.123
 # Comment
+add
+.label
+# comment
+"string2 with a label in the same line" .label_2
+.L3

@@ -2,5 +2,5 @@
 for f in tests/scanner/*.slice
 do
 	echo $f
-	bin/testscanner $f
+	bin/testlexer $f
 done

@@ -67,6 +67,8 @@ static void process_word(Token *token);
 
 static void process_comment();
 
+static void process_label(Token *token);
+
 static double get_rem();
 
 static void
@@ -232,6 +234,30 @@ process_word(Token *token)
 	strcpy(token->lexeme, lex);
 }
 
+static void
+process_label(Token *token)
+{
+	int i = 0;
+
+	next_ch();
+	if (!isalpha(ch)) {
+		pcerror("Invalid start for a label: %c", ch);
+	}
+
+	token->lexeme[i++] = '.';
+	
+	while (isalpha(ch) || isdigit(ch) || ch == '_') {
+		if (i > ID_LEN_MAX) {
+			pcerror("Label is too long");
+		}
+		token->lexeme[i++] = ch;
+		next_ch();
+	}
+
+	token->lexeme[i] = 0;
+	token->type = TOKEN_LABEL;
+}
+
 void
 process_comment()
 {
@@ -255,7 +281,7 @@ fetch_token(Token *token)
 	while (isspace(ch)) next_ch();
 
 	if (ch != EOF) {
-		if (isalpha(ch)) {
+		if (isalpha(ch) && ch != '.') {
 			// Parse word
 			process_word(token);
 		} else if (isdigit(ch)) {
@@ -273,7 +299,8 @@ fetch_token(Token *token)
 					process_string(token);
 					break;
 				case '.':
-					// TODO: Parse a label.
+					// Parse a label.
+					process_label(token);
 					break;
 				case '{':
 					token->type = TOKEN_COPEN;
@@ -282,6 +309,9 @@ fetch_token(Token *token)
 				case '}':
 					token->type = TOKEN_CCLOSE;
 					next_ch();
+					break;
+				default:
+					pcerror("Unknown char: %c", ch);
 					break;
 			}
 		}
