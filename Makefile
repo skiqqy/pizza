@@ -7,15 +7,20 @@ FLAGS   = -Wall -lm
 COMPILE = $(CC) $(FLAGS)
 BIN     = bin/
 
+all: install pizza
+	@echo "Baking the pizza c:"
+
 install:
 	mkdir -p bin
 
-all: install pizza
+pizza: err.o lexer.o
 
-pizza:
+# Run a full scan
+test: testscanner
 
 testscanner: install lexer.o err.o token.o
 	$(COMPILE) -o $(BIN)$@ src/$@.c $(BIN)lexer.o $(BIN)err.o $(BIN)token.o
+	./tests/tscanner.sh
 
 lexer.o: src/lexer.c src/lexer.h
 	$(COMPILE) -c $< -o $(BIN)$@
