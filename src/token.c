@@ -14,7 +14,7 @@ static char *tok_names[] = {
 	"end-of-file",
 	"identifier",
 	"const-integer",
-	"const-float",
+	"const-double",
 	"const-string",
 	"label",
 	"token: {",
