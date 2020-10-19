@@ -20,7 +20,7 @@ test: testlexer
 
 testlexer: install lexer.o err.o token.o
 	$(COMPILE) -o $(BIN)$@ src/$@.c $(BIN)lexer.o $(BIN)err.o $(BIN)token.o
-	./tests/tscanner.sh
+	./tests/tlexer.sh
 
 lexer.o: src/lexer.c src/lexer.h
 	$(COMPILE) -c $< -o $(BIN)$@

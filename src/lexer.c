@@ -277,7 +277,7 @@ init_scanner(FILE *file)
 void
 fetch_token(Token *token)
 {
-	// TODO: Construct the token, by reading source and retrieving the next token.
+	// Construct the token, by reading source and retrieving the next token.
 	while (isspace(ch)) next_ch();
 
 	if (ch != EOF) {
