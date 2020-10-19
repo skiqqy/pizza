@@ -16,9 +16,9 @@ install:
 pizza: err.o lexer.o
 
 # Run a full scan
-test: testscanner
+test: testlexer
 
-testscanner: install lexer.o err.o token.o
+testlexer: install lexer.o err.o token.o
 	$(COMPILE) -o $(BIN)$@ src/$@.c $(BIN)lexer.o $(BIN)err.o $(BIN)token.o
 	./tests/tscanner.sh
 
