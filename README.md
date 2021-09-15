@@ -12,7 +12,7 @@ Because it sounds like fun, and is unique.
 
 ## Wiki
 
-The official wiki can be found [here](https://wiki.skiqqy.xyz/en/pizza), it contains the specification of pizza and slice-lang.
+The official wiki can be found [here](https://wiki.skiqqy.xyz/wiki/pizza.wiki/site), it contains the specification of pizza and slice-lang.
 
 ## Compiling
 
